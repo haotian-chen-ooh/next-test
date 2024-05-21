@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { WrappedAuthWidget } from "@/components/AuthWidget";
+import { AuthWidget } from "@/components/AuthWidget";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
@@ -16,8 +16,8 @@ export default async function Home() {
         height={37}
         priority
       />
-      <WrappedAuthWidget />
-      <div>{`server session: ${JSON.stringify(session)}`}</div>
+      <AuthWidget session={session} />
+      <div>{`root page get session: ${JSON.stringify(session)}`}</div>
     </main>
   );
 }
