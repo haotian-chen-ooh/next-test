@@ -2,7 +2,9 @@
 
 import { useSession, signIn, signOut, SessionProvider } from "next-auth/react";
 
-const SignInButton = () => <button onClick={() => signIn()}>Sign in</button>;
+const SignInButton = () => (
+  <button onClick={() => signIn("github")}>Sign in</button>
+);
 const SignOutButton = () => <button onClick={() => signOut()}>Sign out</button>;
 
 const AuthWidget = () => {
